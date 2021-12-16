@@ -9,7 +9,7 @@ function closeModal() {
     document.getElementById('modal').classList.remove('active')
 }
 
-_________________________________________________
+//_________________________________________________
 
 
 // vetor de objetos de cursos que estavam listados no html
