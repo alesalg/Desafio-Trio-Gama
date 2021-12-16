@@ -1,3 +1,17 @@
+
+//FUNCAO ABRIR O MODAL
+function openModal() {
+    document.getElementById('modal').classList.add('active')
+}
+
+//FUNCAO FECHAR MODAL
+function closeModal() {
+    document.getElementById('modal').classList.remove('active')
+}
+
+_________________________________________________
+
+
 // vetor de objetos de cursos que estavam listados no html
 const cursos = [
     {nome: "Desenvolvimento Web", img: `<img src="imagens/ilustra-web.png">`, descricao: "Consequatur debitis ipsa numquam illum placeat quod deleniti."},
@@ -16,7 +30,7 @@ function listarCursos() {
         <td>${cursos.img}</td>
         <td>${cursos.descricao}</td>
         <td>
-            <button class="btn btn-secondary m-1" id="botaoEditar" >editar</button>
+            <button class="btn btn-secondary m-1" id="botaoEditar" onclick="clicarEmEditar()" >editar</button>
             <button onclick="excluirCurso(this)" id="botaoExcluir" class="btn btn-danger m-1">excluir</button>
         </td>`        
     });
@@ -34,29 +48,13 @@ function excluirCurso() {
 }
 
 
-//FUNÇÃO CLICAR NA OPCAO EDITAR CURSO
-function clicarEmEditar() {
-    document.getElementById("botaoEditar")
-    .classList.add("active")
-    
+// OK - FUNÇÃO CLICAR NA OPCAO EDITAR CURSO
+function clicarEmEditar() {  
+    console.log("editando...");
+    openModal()
 }
-
-//FUNCAO ABRIR JANELA DE EDIÇÃO
-
-//FUNCAO ATUALIZAR DADOS DO CLIENTE 
-
-//FUNCAO VERIFICAR SE O FORMULARIO TA PREENCHIDO (REQUIRED)
-
-//FUNCAO SALVAR EDICAO
-
-//FUNCAO LIMPAR OS CAMPOS DO FORMULARIO
-
-//LISTARCURSOS ATUALIZADO
 
 
 
 // Incorporando informações no DOM
 document.getElementById("corpo").innerHTML = listarCursos();
-
-document.getElementById("janelaAberta")
-    .addEventListener("click", abrirJanelaEdicao)

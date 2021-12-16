@@ -26,9 +26,8 @@
       <div class="row">
         <div class="col">
 
-
           <h3>Serviços</h3>
-          <button class="btn btn-primary">Adicionar novo</button>
+          <button class="btn btn-primary" id="adicionarCurso">Adicionar novo</button>
           <table class="table my-5">
             <thead>
               <tr>
@@ -39,24 +38,25 @@
               </tr>
             </thead>
             <tbody id="corpo">
-
+              
             </tbody>
             </table>
+
             <!-- ADICIONADO CONTEUDO QUANDO ABRIR A JANELA DE EDITAR -->
-            <div class="edicao-abrir" id="edicao-abrir">
-              <div class="edicao-conteudo">
-                  <header class="edicao-header">
-                      <h2>Novo Cliente</h2>
-                      <span class="fechar-edicao" id="fechar-edicao">&#10006;</span>
+            <div class="modal" id="modal"  tabindex="-1" role="dialog" onclick="clicarEmEditar()">
+              <div class="modal-conteudo">
+                  <header class="modal-header">
+                      <h2>Novo Curso</h2>
+                      <span class="modal-fechar" id="modal-fechar">&#10006;</span>
                   </header>
-                  <form id="edicao-formulario" class="edicao-formulario">
+                  <form id="form" class="modal-form">
                       <!-- REQUIRED = OBRIGATÓRIO PREENCHER 
                       DATA-INDEX="NEW" COMO SE FOSSE NOVO CLIENTE PRA UMA FUNCAO-->
-                      <input type="text" id="nome" class="edicao-campos" data-index="new" placeholder="Nome do Curso" required>
-                      <input type="image" id="img" class="edicao-campos" placeholder="Imagem do curso" required>
-                      <input type="text" id="descricao" class="edicao-campos" placeholder="Descrição do curso" required>
+                      <input type="text" id="nome" class="modal-campos" data-index="new" placeholder="Nome do Curso" required>
+                      <input type="image" id="img" class="modal-campos" placeholder="Imagem do curso" required>
+                      <input type="text" id="descricao" class="modal-campos" placeholder="Descrição do curso" required>
                   </form>
-                  <footer class="edicao-footer">
+                  <footer class="modal-footer">
                       <button class="botao-salvar" id="salvar">Salvar</button>
                       <button class="botao-cancelar" id="cancelar">Cancelar</button>
                   </footer>
@@ -70,8 +70,7 @@
   <footer class="py-3 bg-light">
     <div class="container text-center">
       <p class="m-0">
-        copyright 2021
-        <img src="imagens/favicon.png" width="30" alt="" /> agência CRONOS
+        copyright 2021 agência CRONOS
       </p>
     </div>
   </footer>
