@@ -34,12 +34,26 @@ function excluirCurso() {
 }
 
 
-//FUNÇÃO ABRIR JANELA DE EDITAR CURSO -- paloma 
-function abrirJanelaEdicao() {
-    document.getElementById("janelaAberta")
+//FUNÇÃO CLICAR NA OPCAO EDITAR CURSO
+function clicarEmEditar() {
+    document.getElementById("botaoEditar")
     .classList.add("active")
     
 }
+
+//FUNCAO ABRIR JANELA DE EDIÇÃO
+
+//FUNCAO ATUALIZAR DADOS DO CLIENTE 
+
+//FUNCAO VERIFICAR SE O FORMULARIO TA PREENCHIDO (REQUIRED)
+
+//FUNCAO SALVAR EDICAO
+
+//FUNCAO LIMPAR OS CAMPOS DO FORMULARIO
+
+//LISTARCURSOS ATUALIZADO
+
+
 
 // Incorporando informações no DOM
 document.getElementById("corpo").innerHTML = listarCursos();
