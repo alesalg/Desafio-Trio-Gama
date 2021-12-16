@@ -38,13 +38,15 @@ function listarCursos() {
     return corpoTabela;
 }
 
-//função excluir curso -- ainda preciso arrumar a posição da exclusão
-function excluirCurso() {
+//função excluir curso da tela;
+function excluirCurso(a) {
     if(confirm("Você tem certeza que quer deletar este curso ?")) {
-        var elem = document.getElementById('bloco')
-        elem.parentNode.removeChild(elem)
-        console.log(elem)
-    }
+        //parent node = pegamos o elemento pai do botão capturado
+        //rowIndex, retorna o indice tr da tabela
+        let i = a.parentNode.parentNode.rowIndex;
+        let tabela = document.getElementById("minhatabela");
+        tabela.deleteRow(i);
+        }
 }
 
 
