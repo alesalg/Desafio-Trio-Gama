@@ -41,7 +41,28 @@
             <tbody id="corpo">
 
             </tbody>
-          </table>
+            </table>
+            <!-- ADICIONADO CONTEUDO QUANDO ABRIR A JANELA DE EDITAR -->
+            <div class="edicao-abrir" id="edicao-abrir">
+              <div class="edicao-conteudo">
+                  <header class="edicao-header">
+                      <h2>Novo Cliente</h2>
+                      <span class="fechar-edicao" id="fechar-edicao">&#10006;</span>
+                  </header>
+                  <form id="edicao-formulario" class="edicao-formulario">
+                      <!-- REQUIRED = OBRIGATÓRIO PREENCHER 
+                      DATA-INDEX="NEW" COMO SE FOSSE NOVO CLIENTE PRA UMA FUNCAO-->
+                      <input type="text" id="nome" class="edicao-campos" data-index="new" placeholder="Nome do Curso" required>
+                      <input type="image" id="img" class="edicao-campos" placeholder="Imagem do curso" required>
+                      <input type="text" id="descricao" class="edicao-campos" placeholder="Descrição do curso" required>
+                  </form>
+                  <footer class="edicao-footer">
+                      <button class="botao-salvar" id="salvar">Salvar</button>
+                      <button class="botao-cancelar" id="cancelar">Cancelar</button>
+                  </footer>
+              </div>
+
+        </div>
         </div>
       </div>
     </div>

@@ -11,12 +11,13 @@ function listarCursos() {
     // Aqui começa a montagem do HTML onde passei o forEach para ir listando os cursos
     corpoTabela += "<tbody>";
     cursos.forEach((cursos) => {
-        corpoTabela += `<tr id="bloco"><td> ${cursos.nome}</td>
+        corpoTabela += `<tr id="bloco"> 
+        <td>${cursos.nome}</td>
         <td>${cursos.img}</td>
         <td>${cursos.descricao}</td>
         <td>
-        <button class="btn btn-secondary m-1">editar</button>
-        <button onclick="excluirCurso(this)" class="btn btn-danger m-1">excluir</button>
+            <button class="btn btn-secondary m-1" id="botaoEditar" >editar</button>
+            <button onclick="excluirCurso(this)" id="botaoExcluir" class="btn btn-danger m-1">excluir</button>
         </td>`        
     });
     corpoTabela +="<tbody>"
@@ -32,5 +33,16 @@ function excluirCurso() {
     }
 }
 
+
+//FUNÇÃO ABRIR JANELA DE EDITAR CURSO -- paloma 
+function abrirJanelaEdicao() {
+    document.getElementById("janelaAberta")
+    .classList.add("active")
+    
+}
+
 // Incorporando informações no DOM
 document.getElementById("corpo").innerHTML = listarCursos();
+
+document.getElementById("janelaAberta")
+    .addEventListener("click", abrirJanelaEdicao)
