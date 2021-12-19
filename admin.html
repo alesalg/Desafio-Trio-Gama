@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
   <meta charset="UTF-8" />
@@ -22,13 +22,14 @@
       <h1>Painel administrativo</h1>
     </div>
   </header>
+
   <section id="servicos" class="py-5 mb-5">
     <div class="container">
       <div class="row">
         <div class="col">
 
           <h3>Serviços</h3>
-          <button class="btn btn-primary" id="adicionarCurso">Adicionar novo</button>
+          <button class="btn btn-primary" id="btnNovoCurso">Adicionar novo</button>
           <table class="table my-5" id="minhatabela">
             <thead>
               <tr>
@@ -44,7 +45,7 @@
             </table>
 
             <!-- ADICIONADO CONTEUDO QUANDO ABRIR A JANELA DE EDITAR -->
-            <div class="modal" id="modal"  onclick="clicarEmEditar()">
+            <div class="modal" id="modal">
               <div class="modal-conteudo">
                   <header class="modal-header">
                       <h2>Novo Curso</h2>

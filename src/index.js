@@ -30,8 +30,8 @@ function listarCursos() {
         <td>${cursos.img}</td>
         <td>${cursos.descricao}</td>
         <td>
-            <button class="btn btn-secondary m-1" id="botaoEditar" onclick="clicarEmEditar()" >editar</button>
-            <button onclick="excluirCurso(this)" id="botaoExcluir" class="btn btn-danger m-1">excluir</button>
+            <button class="btn btn-secondary m-1" id="btnEditar" onclick="clicarEmEditar()" >editar</button>
+            <button onclick="excluirCurso(this)" id="btnoExcluir" class="btn btn-danger m-1">excluir</button>
         </td>`        
     });
     corpoTabela +="<tbody>"
@@ -41,7 +41,7 @@ function listarCursos() {
 //função excluir curso da tela;
 function excluirCurso(a) {
     if(confirm("Você tem certeza que quer deletar este curso ?")) {
-        //parent node = pegamos o elemento pai do botão capturado
+        //parent node = pegamos o elemento pai do botão capturado 
         //rowIndex, retorna o indice tr da tabela
         let i = a.parentNode.parentNode.rowIndex;
         let tabela = document.getElementById("minhatabela");
@@ -60,3 +60,10 @@ function clicarEmEditar() {
 
 // Incorporando informações no DOM
 document.getElementById("corpo").innerHTML = listarCursos();
+
+let btnAdicionarNovoCurso = document.getElementById("btnNovoCurso")
+//let excluirCurso = document.getElementById("btnExcluir")
+let btnEditarCurso = document.getElementById("btnEditar")
+
+
+//EVENTOS
