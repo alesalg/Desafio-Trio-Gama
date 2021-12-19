@@ -22,7 +22,26 @@
       <h1>Painel administrativo</h1>
     </div>
   </header>
-
+ <!-- ADICIONADO CONTEUDO QUANDO ABRIR A JANELA DE EDITAR -->
+ <div class="modal" id="modal">
+  <div class="modal-conteudo">
+      <header class="modal-header">
+          <h2>Novo Curso</h2>
+          <span class="modal-fechar" id="modal-fechar">&#10006;</span>
+      </header>
+      <form id="form" class="modal-form">
+          <!-- REQUIRED = OBRIGATÓRIO PREENCHER 
+          DATA-INDEX="NEW" COMO SE FOSSE NOVO CLIENTE PRA UMA FUNCAO-->
+          <input type="text" id="nome" class="modal-campos" data-index="new" placeholder="Nome do Curso" required>
+          <input type="image" id="img" class="modal-campos" placeholder="Imagem do curso" required>
+          <input type="text" id="descricao" class="modal-campos" placeholder="Descrição do curso" required>
+      </form>
+      <footer class="modal-footer">
+          <button class="botao-salvar" id="salvar">Salvar</button>
+          <button class="botao-cancelar" id="cancelar">Cancelar</button>
+      </footer>
+  </div>
+</div>
   <section id="servicos" class="py-5 mb-5">
     <div class="container">
       <div class="row">
@@ -44,31 +63,12 @@
             </tbody>
             </table>
 
-            <!-- ADICIONADO CONTEUDO QUANDO ABRIR A JANELA DE EDITAR -->
-            <div class="modal" id="modal">
-              <div class="modal-conteudo">
-                  <header class="modal-header">
-                      <h2>Novo Curso</h2>
-                      <span class="modal-fechar" id="modal-fechar">&#10006;</span>
-                  </header>
-                  <form id="form" class="modal-form">
-                      <!-- REQUIRED = OBRIGATÓRIO PREENCHER 
-                      DATA-INDEX="NEW" COMO SE FOSSE NOVO CLIENTE PRA UMA FUNCAO-->
-                      <input type="text" id="nome" class="modal-campos" data-index="new" placeholder="Nome do Curso" required>
-                      <input type="image" id="img" class="modal-campos" placeholder="Imagem do curso" required>
-                      <input type="text" id="descricao" class="modal-campos" placeholder="Descrição do curso" required>
-                  </form>
-                  <footer class="modal-footer">
-                      <button class="botao-salvar" id="salvar">Salvar</button>
-                      <button class="botao-cancelar" id="cancelar">Cancelar</button>
-                  </footer>
-              </div>
-            </div>
-        </div>
+           
         </div>
       </div>
     </div>
   </section>
+  
   <footer class="py-3 bg-light">
     <div class="container text-center">
       <p class="m-0">
