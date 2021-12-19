@@ -64,6 +64,8 @@ document.getElementById("corpo").innerHTML = listarCursos();
 let btnAdicionarNovoCurso = document.getElementById("btnNovoCurso")
 //let excluirCurso = document.getElementById("btnExcluir")
 let btnEditarCurso = document.getElementById("btnEditar")
+let btnSalvarCurso = document.getElementById("salvar")
+let btnCancelarEdicao = document.getElementById("cancelar")
 
 
 //EVENTOS
