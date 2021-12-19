@@ -43,10 +43,21 @@ function excluirCurso(a) {
         }
 }
 
+function adicionarCurso() {
+
+}
 
 function editarCurso() {  
     console.log("editando...");
     abrirModal()
+}
+
+function salvarEdicao() {
+
+}
+
+function cancelarEdicao() {
+    
 }
 
 // Incorporando informações no DOM
