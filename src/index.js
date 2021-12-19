@@ -26,6 +26,7 @@ function listarCursos() {
 
 function abrirModal() {
     document.querySelector('.modal').classList.add('active');
+
 }
 
 function fecharModal() {
@@ -46,11 +47,13 @@ function excluirCurso(a) {
 function adicionarCurso() {
     console.log("adicionando...");
     abrirModal()
+    
 }
 
-function editarCurso() {  
+function editarCurso(index) {  
     console.log("editando...");
     abrirModal()
+
 }
 
 function salvarEdicao() {
