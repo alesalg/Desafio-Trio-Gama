@@ -1,17 +1,3 @@
-
-//FUNCAO ABRIR O MODAL
-function openModal() {
-    document.getElementById('modal').classList.add('active')
-}
-
-//FUNCAO FECHAR MODAL
-function closeModal() {
-    document.getElementById('modal').classList.remove('active')
-}
-
-//_________________________________________________
-
-
 // vetor de objetos de cursos que estavam listados no html
 const cursos = [
     {nome: "Desenvolvimento Web", img: `<img src="imagens/ilustra-web.png">`, descricao: "Consequatur debitis ipsa numquam illum placeat quod deleniti."},
@@ -30,12 +16,20 @@ function listarCursos() {
         <td>${cursos.img}</td>
         <td>${cursos.descricao}</td>
         <td>
-            <button class="btn btn-secondary m-1" id="btnEditar" onclick="clicarEmEditar()" >editar</button>
-            <button onclick="excluirCurso(this)" id="btnoExcluir" class="btn btn-danger m-1">excluir</button>
+        <button class="btn btn-secondary m-1" id="btnEditar" >editar</button>
+        <button onclick="excluirCurso(this)" id="btnoExcluir" class="btn btn-danger m-1">excluir</button>
         </td>`        
     });
     corpoTabela +="<tbody>"
     return corpoTabela;
+}
+
+function abrirModal() {
+    document.querySelector('.modal').classList.add('active');
+}
+
+function fecharModal() {
+    document.querySelector('.modal').classList.remove('active');
 }
 
 //função excluir curso da tela;
@@ -53,7 +47,7 @@ function excluirCurso(a) {
 // OK - FUNÇÃO CLICAR NA OPCAO EDITAR CURSO
 function clicarEmEditar() {  
     console.log("editando...");
-    openModal()
+    abrirModal()
 }
 
 
@@ -62,10 +56,16 @@ function clicarEmEditar() {
 document.getElementById("corpo").innerHTML = listarCursos();
 
 let btnAdicionarNovoCurso = document.getElementById("btnNovoCurso")
-//let excluirCurso = document.getElementById("btnExcluir")
-let btnEditarCurso = document.getElementById("btnEditar")
-let btnSalvarCurso = document.getElementById("salvar")
+let btnSalvarEdicao = document.getElementById("salvar")
 let btnCancelarEdicao = document.getElementById("cancelar")
+
+let btnEditarCurso = document.getElementById("btnEditar")
+//let excluirCurso = document.getElementById("btnExcluir")
 
 
 //EVENTOS
+btnAdicionarNovoCurso.addEventListener("click", adicionarNovoCurso)
+btnSalvarEdicao.addEventListener("click", salvarEdicao)
+
+btnCancelarEdicao.addEventListener("click", cancelarEdicao)
+btnEditarCurso.addEventListener("click", editarCurso)
