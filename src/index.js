@@ -44,7 +44,8 @@ function excluirCurso(a) {
 }
 
 function adicionarCurso() {
-
+    console.log("adicionando...");
+    abrirModal()
 }
 
 function editarCurso() {  
@@ -53,11 +54,18 @@ function editarCurso() {
 }
 
 function salvarEdicao() {
-
+    console.log("salvando...");
+    fecharModal()
 }
 
 function cancelarEdicao() {
-    
+    console.log("cancelando..")
+    limparDados()
+    fecharModal()
+}
+
+function limparDados() {
+    console.log("limpando...")
 }
 
 // Incorporando informações no DOM
