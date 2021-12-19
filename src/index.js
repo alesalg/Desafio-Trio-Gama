@@ -17,7 +17,7 @@ function listarCursos() {
         <td>${cursos.descricao}</td>
         <td>
         <button class="btn btn-secondary m-1" id="btnEditar" >editar</button>
-        <button onclick="excluirCurso(this)" id="btnoExcluir" class="btn btn-danger m-1">excluir</button>
+        <button onclick="excluirCurso(this)" id="btnExcluir" class="btn btn-danger m-1">excluir</button>
         </td>`        
     });
     corpoTabela +="<tbody>"
@@ -44,28 +44,24 @@ function excluirCurso(a) {
 }
 
 
-// OK - FUNÇÃO CLICAR NA OPCAO EDITAR CURSO
-function clicarEmEditar() {  
+function editarCurso() {  
     console.log("editando...");
     abrirModal()
 }
 
-
-
 // Incorporando informações no DOM
 document.getElementById("corpo").innerHTML = listarCursos();
 
-let btnAdicionarNovoCurso = document.getElementById("btnNovoCurso")
+let btnAdicionarCurso = document.getElementById("btnNovoCurso")
+let btnEditarCurso = document.getElementById("btnEditar")
+//let btnExcluirCurso = document.getElementById("btnExcluir")
 let btnSalvarEdicao = document.getElementById("salvar")
 let btnCancelarEdicao = document.getElementById("cancelar")
 
-let btnEditarCurso = document.getElementById("btnEditar")
-//let excluirCurso = document.getElementById("btnExcluir")
-
-
 //EVENTOS
-btnAdicionarNovoCurso.addEventListener("click", adicionarNovoCurso)
-btnSalvarEdicao.addEventListener("click", salvarEdicao)
-
-btnCancelarEdicao.addEventListener("click", cancelarEdicao)
+btnAdicionarCurso.addEventListener("click", adicionarCurso)
 btnEditarCurso.addEventListener("click", editarCurso)
+//btnExcluirCurso.addEventListener("click", excluirCurso)
+btnSalvarEdicao.addEventListener("click", salvarEdicao)
+btnCancelarEdicao.addEventListener("click", cancelarEdicao)
+
