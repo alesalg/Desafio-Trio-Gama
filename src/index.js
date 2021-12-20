@@ -6,6 +6,13 @@ const cursos = [
     {id: "3", nome: "Consultório UX", img: `<img src="imagens/ilustra-ux.png">`, descricao: "Consequatur debitis ipsa numquam illum placeat quod deleniti."}
 ]
 
+cursos.push({
+    "id" : id,
+    "nome" : nome,
+    "img" : img,
+    "descricao" : descricao 
+})
+
 //ABRE OS CURSOS QUE JA TEM NO PROJETO
 function listarCursos() {
     let corpoTabela = "" 
@@ -69,8 +76,7 @@ function editarCurso(opcao) {
     //rowIndex, retorna o indice tr(LINHA) da tabela
     let id = opcao.parentNode.parentNode.rowIndex
     console.log(id);
-    abrirModal()
-
+    
     //PERCORRER DE I=0 ATÉ I < 3
     for (let i=0; i < cursos.length; i++) {
         if(cursos[i]["id"] == id) {
@@ -80,12 +86,37 @@ function editarCurso(opcao) {
             document.getElementById("descricao").value = cursos[i]["descricao"]  
         }
     }
-    
+
+    abrirModal()
 }
 
-function salvarEdicao() {
+function salvarEdicao(opcao) {
     console.log("salvando...");
+
+        if (cursos[i]["id"] == document.getElementById("id")) {
+            console.log(id);
+        }
+
+
+        if (id == cursos.id) {
+            console.log(cl);
+        }
+
+    /*for (let i=0; i < cursos.length; i++) {
+        if(cursos[i]["id"] == id) {
+            cursos[i]["id"] = document.getElementById("id").value
+            console.log("aqui tem o id" + id);
+        }
+    }*/
+
+    //cursos[numero]  ???
+
     fecharModal()
+
+    listarCursos() 
+    //REPLACE
+
+
 }
 
 function cancelarEdicao() {
