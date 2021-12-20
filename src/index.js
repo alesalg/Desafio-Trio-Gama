@@ -1,8 +1,8 @@
 // vetor de objetos de cursos que estavam listados no html
 const cursos = [
-    {nome: "Desenvolvimento Web", img: `<img src="imagens/ilustra-web.png">`, descricao: "Consequatur debitis ipsa numquam illum placeat quod deleniti."},
-    {nome: "Marketing Digital", img: `<img src="imagens/ilustra-marketing.png" >`, descricao: "Consequatur debitis ipsa numquam illum placeat quod deleniti."},
-    {nome: "Consultorio UX", img: `<img src="imagens/ilustra-ux.png">`, descricao: "Consequatur debitis ipsa numquam illum placeat quod deleniti."}
+    {id: "1", nome: "Desenvolvimento Web", img: `<img src="imagens/ilustra-web.png">`, descricao: "Consequatur debitis ipsa numquam illum placeat quod deleniti."},
+    {id: "2", nome: "Marketing Digital", img: `<img src="imagens/ilustra-marketing.png" >`, descricao: "Consequatur debitis ipsa numquam illum placeat quod deleniti."},
+    {id: "3", nome: "Consultório UX", img: `<img src="imagens/ilustra-ux.png">`, descricao: "Consequatur debitis ipsa numquam illum placeat quod deleniti."}
 ]
 
 // função para listar os cursos e jogar no html cursos que já estavam listados
@@ -12,6 +12,7 @@ function listarCursos() {
     corpoTabela += "<tbody>";
     cursos.forEach((cursos) => {
         corpoTabela += `<tr id="bloco"> 
+        <td>${cursos.id}</td>
         <td>${cursos.nome}</td>
         <td>${cursos.img}</td>
         <td>${cursos.descricao}</td>
@@ -44,9 +45,10 @@ function excluirCurso(a) {
         }
 }
 
-function adicionarCurso() {
+function adicionarCurso(index) {
     console.log("adicionando...");
     abrirModal()
+    cursos.push(index)
     
 }
 
@@ -58,6 +60,7 @@ function editarCurso(index) {
 
 function salvarEdicao() {
     console.log("salvando...");
+    console.log(listarCursos());
     fecharModal()
 }
 
