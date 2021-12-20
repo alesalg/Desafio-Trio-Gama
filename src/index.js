@@ -6,12 +6,31 @@ const cursos = [
     {id: "3", nome: "Consultório UX", img: `<img src="imagens/ilustra-ux.png">`, descricao: "Consequatur debitis ipsa numquam illum placeat quod deleniti."}
 ]
 
+/*
+function testando(objIndex) {
+    console.log("entrei");
+    
+    //localizar index de um objeto especifico, findIndex.
+    cursosIndex = cursos.findIndex((obj => obj.id == 1))
+    
+    //LOG DO OBJ NO CONSOLE
+    console.log("antes de atualizar: ", cursosIndex);
+    
+    //ATUALIZANDO O NOME DO OBJETO
+    cursos[index].nome = "Lalala"
+    
+    //LOG DO OBJ NO CONSOLE
+    console.log("depois de atualizar: ", cursos[id].nome);
+    
+}*/
+
+
+//FUNCAO QUANDO ADICIONAR CURSO!
 cursos.push({
-    "id" : id,
-    "nome" : nome,
-    "img" : img,
-    "descricao" : descricao 
-})
+    "id": id, "nome": nome, "img": img, "descricao": descricao 
+});
+
+
 
 //ABRE OS CURSOS QUE JA TEM NO PROJETO
 function listarCursos() {
@@ -65,13 +84,9 @@ function excluirCurso(a) {
 function adicionarCurso(index) {
     console.log("adicionando...");
     abrirModal()
-    cursos.push(index)
-    
 }
 
 function editarCurso(opcao) { 
-    
-    console.log("editando...");
     
     //rowIndex, retorna o indice tr(LINHA) da tabela
     let id = opcao.parentNode.parentNode.rowIndex
@@ -80,6 +95,7 @@ function editarCurso(opcao) {
     //PERCORRER DE I=0 ATÉ I < 3
     for (let i=0; i < cursos.length; i++) {
         if(cursos[i]["id"] == id) {
+            //MOSTRA AS INFORMACOES NOS INPUTS
             document.getElementById("id").value = cursos[i]["id"]
             document.getElementById("nome").value = cursos[i]["nome"]  
             document.getElementById("img").value = cursos[i]["img"]  
@@ -90,7 +106,8 @@ function editarCurso(opcao) {
     abrirModal()
 }
 
-function salvarEdicao(opcao) {
+//FUNCAO SALVAR QUANDO EDITAR INFORMACOES DO CURSO!
+/*function salvarEdicao(opcao) {
     console.log("salvando...");
 
         if (cursos[i]["id"] == document.getElementById("id")) {
@@ -98,26 +115,23 @@ function salvarEdicao(opcao) {
         }
 
 
-        if (id == cursos.id) {
-            console.log(cl);
-        }
+        let cursoId = cursos.find(cursoId => cursos.id === "id")
 
-    /*for (let i=0; i < cursos.length; i++) {
+    for (let i=0; i < cursos.length; i++) {
         if(cursos[i]["id"] == id) {
             cursos[i]["id"] = document.getElementById("id").value
             console.log("aqui tem o id" + id);
         }
-    }*/
+    }
 
     //cursos[numero]  ???
 
-    fecharModal()
+   fecharModal()
 
-    listarCursos() 
     //REPLACE
-
-
 }
+*/
+
 
 function cancelarEdicao() {
     console.log("cancelando..")
