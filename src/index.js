@@ -1,9 +1,9 @@
 // vetor de objetos de cursos que estavam listados no html
     //ARRAY DE OBJETOS (OBJETO = CURSO)
 const cursos = [
-    {id: 1, nome: "Desenvolvimento Web", img: `<img src="imagens/ilustra-web.png">`, descricao: "Consequatur debitis ipsa numquam illum placeat quod deleniti."},
-    {id: 2, nome: "Marketing Digital", img: `<img src="imagens/ilustra-marketing.png" >`, descricao: "Consequatur debitis ipsa numquam illum placeat quod deleniti."},
-    {id: 3, nome: "Consultório UX", img: `<img src="imagens/ilustra-ux.png">`, descricao: "Consequatur debitis ipsa numquam illum placeat quod deleniti."}
+    {id: "1", nome: "Desenvolvimento Web", img: `<img src="imagens/ilustra-web.png">`, descricao: "Consequatur debitis ipsa numquam illum placeat quod deleniti."},
+    {id: "2", nome: "Marketing Digital", img: `<img src="imagens/ilustra-marketing.png" >`, descricao: "Consequatur debitis ipsa numquam illum placeat quod deleniti."},
+    {id: "3", nome: "Consultório UX", img: `<img src="imagens/ilustra-ux.png">`, descricao: "Consequatur debitis ipsa numquam illum placeat quod deleniti."}
 ]
 
 //ABRE OS CURSOS QUE JA TEM NO PROJETO
@@ -12,15 +12,16 @@ function listarCursos() {
     // Aqui começa a montagem do HTML onde passei o forEach para ir listando os cursos
     corpoTabela += "<tbody>";
     cursos.forEach((cursos) => {
-        corpoTabela += `<tr id="bloco"> 
-        <td>${cursos.id}</td>
-        <td>${cursos.nome}</td>
-        <td>${cursos.img}</td>
-        <td>${cursos.descricao}</td>
-        <td>
-        <button onclick="editarCurso(this)" class="btn btn-secondary m-1" id="btnEditar" >editar</button>
-        <button onclick="excluirCurso(this)" id="btnExcluir" class="btn btn-danger m-1">excluir</button>
-        </td>`        
+        corpoTabela += 
+        `<tr id="bloco"> 
+            <td>${cursos.id}</td>
+            <td>${cursos.nome}</td>
+            <td>${cursos.img}</td>
+            <td>${cursos.descricao}</td>
+            <td>
+                <button onclick="editarCurso(this)" id="btnEditar" class="btn btn-secondary m-1">editar</button>
+                <button onclick="excluirCurso(this)" id="btnExcluir" class="btn btn-danger m-1">excluir</button>
+            </td>`        
     });
     corpoTabela +="<tbody>"
     return corpoTabela;
@@ -61,23 +62,26 @@ function adicionarCurso(index) {
     
 }
 
-function editarCurso(id) {  
+function editarCurso(opcao) { 
+    
     console.log("editando...");
-
-
+    
+    //rowIndex, retorna o indice tr(LINHA) da tabela
+    let id = opcao.parentNode.parentNode.rowIndex
+    console.log(id);
+    
     abrirModal()
 
     //PERCORRER DE I=0 ATÉ I < 3
-    for (let i=0; i < cursos.length; i++) {
+ /*   for (let i=0; i < cursos.length; i++) {
         if(cursos[i]["id"] == id) {
             document.getElementById("id").value = cursos[i]["id"]
             document.getElementById("nome").value = cursos[i]["nome"]  
             document.getElementById("img").value = cursos[i]["img"]  
             document.getElementById("descricao").value = cursos[i]["descricao"]  
         }
-    }
+    }*/
     
-    console.log(cursos.id);
 }
 
 function salvarEdicao() {
