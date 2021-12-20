@@ -1,11 +1,12 @@
 // vetor de objetos de cursos que estavam listados no html
+    //ARRAY DE OBJETOS (OBJETO = CURSO)
 const cursos = [
-    {id: "1", nome: "Desenvolvimento Web", img: `<img src="imagens/ilustra-web.png">`, descricao: "Consequatur debitis ipsa numquam illum placeat quod deleniti."},
-    {id: "2", nome: "Marketing Digital", img: `<img src="imagens/ilustra-marketing.png" >`, descricao: "Consequatur debitis ipsa numquam illum placeat quod deleniti."},
-    {id: "3", nome: "Consultório UX", img: `<img src="imagens/ilustra-ux.png">`, descricao: "Consequatur debitis ipsa numquam illum placeat quod deleniti."}
+    {id: 1, nome: "Desenvolvimento Web", img: `<img src="imagens/ilustra-web.png">`, descricao: "Consequatur debitis ipsa numquam illum placeat quod deleniti."},
+    {id: 2, nome: "Marketing Digital", img: `<img src="imagens/ilustra-marketing.png" >`, descricao: "Consequatur debitis ipsa numquam illum placeat quod deleniti."},
+    {id: 3, nome: "Consultório UX", img: `<img src="imagens/ilustra-ux.png">`, descricao: "Consequatur debitis ipsa numquam illum placeat quod deleniti."}
 ]
 
-// função para listar os cursos e jogar no html cursos que já estavam listados
+//ABRE OS CURSOS QUE JA TEM NO PROJETO
 function listarCursos() {
     let corpoTabela = "" 
     // Aqui começa a montagem do HTML onde passei o forEach para ir listando os cursos
@@ -25,6 +26,8 @@ function listarCursos() {
     return corpoTabela;
 }
 
+//------------------------------------------------------
+
 function abrirModal() {
     document.querySelector('.modal').classList.add('active');
 
@@ -34,7 +37,10 @@ function fecharModal() {
     document.querySelector('.modal').classList.remove('active');
 }
 
-//função excluir curso da tela;
+//----------------------------------------------------------
+
+
+//EXCLUIR CURSO DA TELA
 function excluirCurso(a) {
     if(confirm("Você tem certeza que quer deletar este curso ?")) {
         //parent node = pegamos o elemento pai do botão capturado 
@@ -42,8 +48,11 @@ function excluirCurso(a) {
         let i = a.parentNode.parentNode.rowIndex;
         let tabela = document.getElementById("minhatabela");
         tabela.deleteRow(i);
-        }
+    }
 }
+
+//-----------------------------------------------------------
+
 
 function adicionarCurso(index) {
     console.log("adicionando...");
@@ -52,15 +61,25 @@ function adicionarCurso(index) {
     
 }
 
-function editarCurso(index) {  
+function editarCurso(id) {  
     console.log("editando...");
     abrirModal()
+
+    //PERCORRER DE I=0 ATÉ I < 3
+    for (let i=0; i < cursos.length; i++) {
+        if(cursos[i]["id"] == id) {
+            document.getElementById("id").value = cursos[i]["id"]
+            document.getElementById("nome").value = cursos[i]["nome"]  
+            document.getElementById("img").value = cursos[i]["img"]  
+            document.getElementById("descricao").value = cursos[i]["descricao"]  
+        }
+        console.log(cursos[id]);
+    }
 
 }
 
 function salvarEdicao() {
     console.log("salvando...");
-    console.log(listarCursos());
     fecharModal()
 }
 
@@ -73,6 +92,8 @@ function cancelarEdicao() {
 function limparDados() {
     console.log("limpando...")
 }
+
+//----------------------------------------------------------
 
 // Incorporando informações no DOM
 document.getElementById("corpo").innerHTML = listarCursos();
