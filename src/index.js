@@ -18,7 +18,7 @@ function listarCursos() {
         <td>${cursos.img}</td>
         <td>${cursos.descricao}</td>
         <td>
-        <button class="btn btn-secondary m-1" id="btnEditar" >editar</button>
+        <button onclick="editarCurso(this)" class="btn btn-secondary m-1" id="btnEditar" >editar</button>
         <button onclick="excluirCurso(this)" id="btnExcluir" class="btn btn-danger m-1">excluir</button>
         </td>`        
     });
@@ -63,6 +63,8 @@ function adicionarCurso(index) {
 
 function editarCurso(id) {  
     console.log("editando...");
+
+
     abrirModal()
 
     //PERCORRER DE I=0 ATÉ I < 3
@@ -73,9 +75,9 @@ function editarCurso(id) {
             document.getElementById("img").value = cursos[i]["img"]  
             document.getElementById("descricao").value = cursos[i]["descricao"]  
         }
-        console.log(cursos[id]);
     }
-
+    
+    console.log(cursos.id);
 }
 
 function salvarEdicao() {
@@ -104,10 +106,10 @@ let btnEditarCurso = document.getElementById("btnEditar")
 let btnSalvarEdicao = document.getElementById("salvar")
 let btnCancelarEdicao = document.getElementById("cancelar")
 
+
 //EVENTOS
 btnAdicionarCurso.addEventListener("click", adicionarCurso)
 btnEditarCurso.addEventListener("click", editarCurso)
 //btnExcluirCurso.addEventListener("click", excluirCurso)
 btnSalvarEdicao.addEventListener("click", salvarEdicao)
 btnCancelarEdicao.addEventListener("click", cancelarEdicao)
-
