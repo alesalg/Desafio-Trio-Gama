@@ -89,10 +89,6 @@ function adicionarCurso(index) {
 function editarCurso(opcao) { 
     abrirModal()
 
-    btnEditar.style.display ='none';
-    btnSalvar.style.display = "initial";
-
-
     //rowIndex, retorna o indice tr(LINHA) da tabela
     let id = opcao.parentNode.parentNode.rowIndex
     console.log(id);
@@ -153,9 +149,10 @@ function limparDados() {
 document.getElementById("corpo").innerHTML = listarCursos();
 
 let btnAdicionarCurso = document.getElementById("btnNovoCurso")
-let btnEditarCurso = document.getElementById("btnEditar")
+let btnEditarCurso = document.getElementById("btnEditar") 
 //let btnExcluirCurso = document.getElementById("btnExcluir")
-let btnSalvarEdicao = document.getElementById("salvar")
+let salvar = document.getElementById("salvar") 
+let salvarEdicao = document.getElementById("salvar-edicao")
 let btnCancelarEdicao = document.getElementById("cancelar")
 
 
@@ -163,5 +160,8 @@ let btnCancelarEdicao = document.getElementById("cancelar")
 btnAdicionarCurso.addEventListener("click", adicionarCurso)
 btnEditarCurso.addEventListener("click", editarCurso)
 //btnExcluirCurso.addEventListener("click", excluirCurso)
-btnSalvarEdicao.addEventListener("click", salvarEdicao)
+salvar.addEventListener("click", salvarEdicao) //salvar curso novo
+console.log(salvar)
+salvarEdicao.addEventListener("click", salvarEdicao)
+console.log(salvarEdicao)
 btnCancelarEdicao.addEventListener("click", cancelarEdicao)
