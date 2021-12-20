@@ -69,18 +69,17 @@ function editarCurso(opcao) {
     //rowIndex, retorna o indice tr(LINHA) da tabela
     let id = opcao.parentNode.parentNode.rowIndex
     console.log(id);
-    
     abrirModal()
 
     //PERCORRER DE I=0 ATÉ I < 3
- /*   for (let i=0; i < cursos.length; i++) {
+    for (let i=0; i < cursos.length; i++) {
         if(cursos[i]["id"] == id) {
             document.getElementById("id").value = cursos[i]["id"]
             document.getElementById("nome").value = cursos[i]["nome"]  
             document.getElementById("img").value = cursos[i]["img"]  
             document.getElementById("descricao").value = cursos[i]["descricao"]  
         }
-    }*/
+    }
     
 }
 
