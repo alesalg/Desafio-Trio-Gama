@@ -87,7 +87,12 @@ function adicionarCurso(index) {
 }
 
 function editarCurso(opcao) { 
-    
+    abrirModal()
+
+    btnEditar.style.display ='none';
+    btnSalvar.style.display = "initial";
+
+
     //rowIndex, retorna o indice tr(LINHA) da tabela
     let id = opcao.parentNode.parentNode.rowIndex
     console.log(id);
@@ -103,7 +108,6 @@ function editarCurso(opcao) {
         }
     }
 
-    abrirModal()
 }
 
 //FUNCAO SALVAR QUANDO EDITAR INFORMACOES DO CURSO!
