@@ -1,36 +1,9 @@
-// vetor de objetos de cursos que estavam listados no html
-    //ARRAY DE OBJETOS (OBJETO = CURSO)
+//ARRAY DE OBJETOS (OBJETO = CURSO)
 const cursos = [
     {id: "1", nome: "Desenvolvimento Web", img: `<img src="imagens/ilustra-web.png">`, descricao: "Consequatur debitis ipsa numquam illum placeat quod deleniti."},
     {id: "2", nome: "Marketing Digital", img: `<img src="imagens/ilustra-marketing.png" >`, descricao: "Consequatur debitis ipsa numquam illum placeat quod deleniti."},
     {id: "3", nome: "Consultório UX", img: `<img src="imagens/ilustra-ux.png">`, descricao: "Consequatur debitis ipsa numquam illum placeat quod deleniti."}
 ]
-
-/*
-function testando(objIndex) {
-    console.log("entrei");
-    
-    //localizar index de um objeto especifico, findIndex.
-    cursosIndex = cursos.findIndex((obj => obj.id == 1))
-    
-    //LOG DO OBJ NO CONSOLE
-    console.log("antes de atualizar: ", cursosIndex);
-    
-    //ATUALIZANDO O NOME DO OBJETO
-    cursos[index].nome = "Lalala"
-    
-    //LOG DO OBJ NO CONSOLE
-    console.log("depois de atualizar: ", cursos[id].nome);
-    
-}*/
-
-
-//FUNCAO QUANDO ADICIONAR CURSO!
-cursos.push({
-    "id": id, "nome": nome, "img": img, "descricao": descricao 
-});
-
-
 
 //ABRE OS CURSOS QUE JA TEM NO PROJETO
 function listarCursos() {
@@ -80,27 +53,37 @@ function excluirCurso(a) {
 
 //-----------------------------------------------------------
 
+//ABRE MODAL QUANDO CLICA EM ADICIONAR NOVO CURSO
+function adicionarCurso() {
 
-function adicionarCurso(index) {
     abrirModal()
-
     salvar.style.display = "initial"
     salvarEdicao.style.display = "none"
 }
+
+//----------------------------------------------------------
+
 // Funcao para salvar o curso novo funcionando
+
+//FUNCAO, QUANDO CLICA EM SALVAR NOVO CURSO
+//PARAMETROS SAO OS INPUTS
 function salvarCurso(id, nome, img, descricao) {
+    //VARIAVEL CORPO TABELA VAZIA
     let corpoTabela = '';
-    cursos.splice(
-        cursos.length,
-        0,
+    
+    //
+    cursos.splice(cursos.length, 0,
         {
             id: id,
             nome: nome,
             img: img,
             descricao
         });
+    //VARIAVEL CORPOTABELA RECEBE O TBODY
     corpoTabela += "<tbody>";
+    //LE CURSO POR CURSO
     cursos.forEach((cursos) => {
+        //ADICIONA O CURSO NO CORPO TABELA
         corpoTabela +=
             `<tr id="bloco"> 
             <td>${cursos.id}</td>
@@ -112,9 +95,37 @@ function salvarCurso(id, nome, img, descricao) {
                 <button onclick="excluirCurso(this)" id="btnExcluir" class="btn btn-danger m-1">excluir</button>
             </td>`
     });
+
     corpoTabela += "<tbody>"
+    //RETORNA O CORPOTABELA 
     return corpoTabela;
 }
+
+//-----------------------------------------------------------
+
+//SALVAR E ADICIONAR NOVO CURSO
+function salvarNovoCurso() {
+    let id = document.getElementById("id").value,
+        nome = document.getElementById("nome").value,
+        img = document.getElementById("img").value,
+        descricao = document.getElementById("descricao").value;
+        
+        document.getElementById('corpo').innerHTML = salvarCurso(id, nome, img, descricao)    
+        fecharModal();
+        document.querySelector('#form').reset();   
+}
+
+//--------------------------------------------------------------
+
+//FUNCAO PARA SALVAR CURSO EDITADO
+function atualizarCurso() {
+
+}
+
+
+//---------------------------------------------------------------
+
+//FUNCAO ABRE DADOS DO CURSO QUE FOI CLICADO
 
 function editarCurso(opcao) { 
     abrirModal()
@@ -136,8 +147,60 @@ function editarCurso(opcao) {
             document.getElementById("descricao").value = cursos[i]["descricao"]  
         }
     }
-
 }
+
+//---------------------------------------------------------
+
+function cancelarEdicao() {
+    console.log("cancelando..")
+    limparDados()
+    fecharModal()
+}
+
+function limparDados() {
+    console.log("limpando...")
+}
+
+//----------------------------------------------------------
+
+// Incorporando informações no DOM
+document.getElementById("corpo").innerHTML = listarCursos();
+
+let btnAdicionarCurso = document.getElementById("btnNovoCurso")
+let btnEditarCurso = document.getElementById("btnEditar") 
+let salvar = document.getElementById("salvar") 
+let salvarEdicao = document.getElementById("salvar-edicao")
+let btnCancelarEdicao = document.getElementById("cancelar")
+
+
+//EVENTOS
+btnAdicionarCurso.addEventListener("click", adicionarCurso)
+btnEditarCurso.addEventListener("click", editarCurso)
+salvar.addEventListener("click", salvarNovoCurso)
+salvarEdicao.addEventListener("click", atualizarCurso)
+btnCancelarEdicao.addEventListener("click", cancelarEdicao)
+
+
+
+/*
+function testando(objIndex) {
+    console.log("entrei");
+    
+    //localizar index de um objeto especifico, findIndex.
+    cursosIndex = cursos.findIndex((obj => obj.id == 1))
+    
+    //LOG DO OBJ NO CONSOLE
+    console.log("antes de atualizar: ", cursosIndex);
+    
+    //ATUALIZANDO O NOME DO OBJETO
+    cursos[index].nome = "Lalala"
+    
+    //LOG DO OBJ NO CONSOLE
+    console.log("depois de atualizar: ", cursos[id].nome);
+    
+}*/
+
+
 
 //FUNCAO SALVAR QUANDO EDITAR INFORMACOES DO CURSO!
 /*function salvarEdicao(opcao) {
@@ -164,45 +227,3 @@ function editarCurso(opcao) {
     //REPLACE
 }
 */
-
-
-function cancelarEdicao() {
-    console.log("cancelando..")
-    limparDados()
-    fecharModal()
-}
-
-function limparDados() {
-    console.log("limpando...")
-}
-
-//----------------------------------------------------------
-
-// Incorporando informações no DOM
-document.getElementById("corpo").innerHTML = listarCursos();
-
-let btnAdicionarCurso = document.getElementById("btnNovoCurso")
-let btnEditarCurso = document.getElementById("btnEditar") 
-//let btnExcluirCurso = document.getElementById("btnExcluir")
-let salvar = document.getElementById("salvar") 
-let salvarEdicao = document.getElementById("salvar-edicao")
-let btnCancelarEdicao = document.getElementById("cancelar")
-
-
-//EVENTOS
-btnAdicionarCurso.addEventListener("click", adicionarCurso)
-btnEditarCurso.addEventListener("click", editarCurso)
-//btnExcluirCurso.addEventListener("click", excluirCurso)
-salvar.addEventListener("click", (e) => {
-    let id = document.getElementById("id").value,
-        nome = document.getElementById("nome").value,
-        img = document.getElementById("img").value,
-        descricao = document.getElementById("descricao").value;
-    document.getElementById('corpo').innerHTML = salvarCurso(id, nome, img, descricao)    
-    fecharModal();
-    document.querySelector('#form').reset();    
-}) //salvar curso novo
-salvarEdicao.addEventListener("click", (e) => {
-   
-})
-btnCancelarEdicao.addEventListener("click", cancelarEdicao)
