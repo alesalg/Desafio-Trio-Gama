@@ -87,6 +87,34 @@ function adicionarCurso(index) {
     salvar.style.display = "initial"
     salvarEdicao.style.display = "none"
 }
+// Funcao para salvar o curso novo funcionando
+function salvarCurso(id, nome, img, descricao) {
+    let corpoTabela = '';
+    cursos.splice(
+        cursos.length,
+        0,
+        {
+            id: id,
+            nome: nome,
+            img: img,
+            descricao
+        });
+    corpoTabela += "<tbody>";
+    cursos.forEach((cursos) => {
+        corpoTabela +=
+            `<tr id="bloco"> 
+            <td>${cursos.id}</td>
+            <td>${cursos.nome}</td>
+            <td>${cursos.img}</td>
+            <td>${cursos.descricao}</td>
+            <td>
+                <button onclick="editarCurso(this)" id="btnEditar" class="btn btn-secondary m-1">editar</button>
+                <button onclick="excluirCurso(this)" id="btnExcluir" class="btn btn-danger m-1">excluir</button>
+            </td>`
+    });
+    corpoTabela += "<tbody>"
+    return corpoTabela;
+}
 
 function editarCurso(opcao) { 
     abrirModal()
@@ -170,13 +198,9 @@ salvar.addEventListener("click", (e) => {
         nome = document.getElementById("nome").value,
         img = document.getElementById("img").value,
         descricao = document.getElementById("descricao").value;
-    cursos.splice(
-        cursos.length,
-        0,
-        { id: id, nome: nome, img: img, descricao: descricao
-        });
-    console.log(cursos);
-    
+    document.getElementById('corpo').innerHTML = salvarCurso(id, nome, img, descricao)    
+    fecharModal();
+    document.querySelector('#form').reset();    
 }) //salvar curso novo
 salvarEdicao.addEventListener("click", (e) => {
    
