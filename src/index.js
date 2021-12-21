@@ -82,12 +82,17 @@ function excluirCurso(a) {
 
 
 function adicionarCurso(index) {
-    console.log("adicionando...");
     abrirModal()
+
+    salvar.style.display = "initial"
+    salvarEdicao.style.display = "none"
 }
 
 function editarCurso(opcao) { 
     abrirModal()
+
+    salvar.style.display = "none"
+    salvarEdicao.style.display = "initial"
 
     //rowIndex, retorna o indice tr(LINHA) da tabela
     let id = opcao.parentNode.parentNode.rowIndex
@@ -160,8 +165,20 @@ let btnCancelarEdicao = document.getElementById("cancelar")
 btnAdicionarCurso.addEventListener("click", adicionarCurso)
 btnEditarCurso.addEventListener("click", editarCurso)
 //btnExcluirCurso.addEventListener("click", excluirCurso)
-salvar.addEventListener("click", salvarEdicao) //salvar curso novo
-console.log(salvar)
-salvarEdicao.addEventListener("click", salvarEdicao)
-console.log(salvarEdicao)
+salvar.addEventListener("click", (e) => {
+    let id = document.getElementById("id").value,
+        nome = document.getElementById("nome").value,
+        img = document.getElementById("img").value,
+        descricao = document.getElementById("descricao").value;
+    cursos.splice(
+        cursos.length,
+        0,
+        { id: id, nome: nome, img: img, descricao: descricao
+        });
+    console.log(cursos);
+    
+}) //salvar curso novo
+salvarEdicao.addEventListener("click", (e) => {
+   
+})
 btnCancelarEdicao.addEventListener("click", cancelarEdicao)
