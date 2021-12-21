@@ -84,7 +84,9 @@ function salvarCurso(id, nome, img, descricao) {
     //LE CURSO POR CURSO
     cursos.forEach((cursos) => {
         //ADICIONA O CURSO NO CORPO TABELA
-        corpoTabela +=
+
+        if (cursos.id == true) {
+            corpoTabela +=
             `<tr id="bloco"> 
             <td>${cursos.id}</td>
             <td>${cursos.nome}</td>
@@ -94,9 +96,23 @@ function salvarCurso(id, nome, img, descricao) {
                 <button onclick="editarCurso(this)" id="btnEditar" class="btn btn-secondary m-1">editar</button>
                 <button onclick="excluirCurso(this)" id="btnExcluir" class="btn btn-danger m-1">excluir</button>
             </td>`
+        } else {
+            corpoTabela +=
+                `<tr id="bloco"> 
+                <td>${cursos.id}</td>
+                <td>${cursos.nome}</td>
+                <td>
+                    <img id="image" src="/imagens/ilustra-team.png" alt="nova-imagem"/>
+                </td>
+                <td>${cursos.descricao}</td>
+                <td>
+                    <button onclick="editarCurso(this)" id="btnEditar" class="btn btn-secondary m-1">editar</button>
+                    <button onclick="excluirCurso(this)" id="btnExcluir" class="btn btn-danger m-1">excluir</button>
+                </td>`
+        }
+        corpoTabela += "<tbody>"
     });
-
-    corpoTabela += "<tbody>"
+    
     //RETORNA O CORPOTABELA 
     return corpoTabela;
 }
