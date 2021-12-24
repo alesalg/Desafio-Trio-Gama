@@ -44,6 +44,14 @@ h3 {
     margin: 30px 0;
 }
 
+.btn.btn-secondary {
+    text-transform: uppercase;
+}
+
+.btn.btn-danger {
+    text-transform: uppercase;
+}
+
 .btn.btn-primary {
     background-color: #0097A7;
     border-color: #0097A7;
