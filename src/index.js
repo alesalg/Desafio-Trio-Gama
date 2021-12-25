@@ -79,9 +79,16 @@ function editarCurso(e) {
     descricao.value = cursos[posicaoElemento].descricao;
 
     let botao = document.getElementById("editarInfoCurso");
-    botao.addEventListener("click", (e) => {
-        e.preventDefault();
-        console.log("chegueiAqui")
+    botao.addEventListener("click", (a) => {
+        a.preventDefault();
+        
+        cursos[posicaoElemento].nome = nome.value;
+        cursos[posicaoElemento].descricao = descricao.value;
+
+        //Procurar a posicao do curso dentro da tabela
+        let posicao = e.parentNode.parentNode.children;
+        posicao[0].innerHTML = cursos[posicaoElemento].nome;
+        posicao[2].innerHTML = cursos[posicaoElemento].descricao;
     })
 
 
