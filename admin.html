@@ -46,6 +46,7 @@
       </div>
     </div>
   </section>
+  <!-- MODAL ADICIONAR CURSO -->
   <div class="modal fade" id="adicionarCurso" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -67,10 +68,41 @@
             </div>
             <div class="mb-3">
               <label for="desc">Descrição</label>
-              <input type="text" class="form-control" name="desc" id="desc" required>
+              <textarea name="desc" id="desc" class="form-control" required></textarea>
             </div>
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
             <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Adicionar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal Editar Curso -->
+  <div class="modal fade" id="editarCurso" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalTitle">
+            Editar Curso
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form name="editar_curso">
+            <div class="mb-3">
+              <label for="edicaoNome">Curso</label>
+              <input type="text" class="form-control" name="titulo" id="edicaoNome" required />
+            </div>
+            <div class="mb-3">
+              <label for="edicaoImg">Imagem</label>
+              <input id="img" type="file" accept=".jpg,.png" class="form-control" name="img" />
+            </div>
+            <div class="mb-3">
+              <label for="edicaoDesc">Descrição</label>
+              <textarea name="desc" id="edicaoDesc" class="form-control" required></textarea>
+            </div>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+            <button id="olaAle" type="submit" class="btn btn-primary">Editar</button>
           </form>
         </div>
       </div>
