@@ -63,13 +63,12 @@ addCurso.addEventListener("submit", (e) => {
 // EDITAR CURSO
 
 function editarCurso(e) {
+    //Percorre o elemento até encontrar o primeiro filho, assim localizamos o curso do botão
     let elemento = e.parentNode.parentNode.firstElementChild.innerHTML;
+    //Localiza em qual posição do vetor está o objeto
     let posicaoElemento = cursos.findIndex((cursos) => cursos.nome === elemento);
-    console.log(posicaoElemento)
 
-    if(posicaoElemento === - 1) return;
-
-    // pegando os valores da pg
+    // Capturamos o botão do modal e incluimos no mesmo o valor do atributo objeto
     let nome = document.getElementById("edicaoNome");
     nome.value = cursos[posicaoElemento].nome;
     // let img = document.getElementById("edicaoImg");
@@ -78,6 +77,7 @@ function editarCurso(e) {
     let descricao = document.getElementById("edicaoDesc");
     descricao.value = cursos[posicaoElemento].descricao;
 
+    // Capturamos o botão do modal para chamar a funcao e editar os dados
     let botao = document.getElementById("editarInfoCurso");
     botao.addEventListener("click", (a) => {
         a.preventDefault();
@@ -85,13 +85,11 @@ function editarCurso(e) {
         cursos[posicaoElemento].nome = nome.value;
         cursos[posicaoElemento].descricao = descricao.value;
 
-        //Procurar a posicao do curso dentro da tabela
+        //Procurar a posicao do curso dentro da tabela e incluindo o valor digitado no modal
         let posicao = e.parentNode.parentNode.children;
         posicao[0].innerHTML = cursos[posicaoElemento].nome;
         posicao[2].innerHTML = cursos[posicaoElemento].descricao;
     })
-
-
 }
 
 //EXCLUIR CURSO DA TELA
