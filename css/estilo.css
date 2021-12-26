@@ -63,3 +63,7 @@ table img {
     width: 220px;
     border: 1px solid #ccc;
 }
+
+#img-tamanho{
+    height: 150px;
+}

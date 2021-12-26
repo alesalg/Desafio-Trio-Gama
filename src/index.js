@@ -15,7 +15,7 @@ class Cursos {
             corpoTabela += 
             `<tr id="bloco"> 
                 <td>${cursos.nome}</td>
-                <td><img src="${cursos.img}"</td>
+                <td><img src="${cursos.img}" id="img-tamanho" class="img-thumbnail"></td>
                 <td>${cursos.descricao}</td>
                 <td>
                     <button onclick="editarCurso(this)"class="btn btn-secondary m-1"data-bs-toggle="modal" data-bs-target="#editarCurso">editar</button>
@@ -33,29 +33,23 @@ function listarCursos() {
     document.getElementById("corpo").innerHTML = cursos.montarCursos();
 }
 
-const addCurso = document.forms.add_curso;
 
 // ADD CURSO NOVO
+const addCurso = document.forms.add_curso;
 addCurso.addEventListener("submit", (e) => {
     e.preventDefault();
 
     const titulo = addCurso.titulo.value;
     const desc = addCurso.desc.value;
-    const img = addCurso.img.files[0];
+    const img = addCurso.img.value;
 
-    let reader = new FileReader();
+    cursos.push({
+        nome:titulo,
+        descricao: desc,
+        img: img,
+    })
 
-    reader.onload = function (e) {
-        cursos.push({
-            nome: titulo,
-            descricao: desc,
-            img: e.target.result,
-        });
-
-        listarCursos();
-    };
-
-    reader.readAsDataURL(img);
+    listarCursos();
 })
 
 //-----------------------------------------------------------
@@ -71,9 +65,8 @@ function editarCurso(e) {
     // Capturamos o botão do modal e incluimos no mesmo o valor do atributo objeto
     let nome = document.getElementById("edicaoNome");
     nome.value = cursos[posicaoElemento].nome;
-    // let img = document.getElementById("edicaoImg");
-    // img.files[0] = cursos[posicaoElemento].img;
-    
+    let img = document.getElementById("edicaoImg");  
+    img.value = cursos[posicaoElemento].img;  
     let descricao = document.getElementById("edicaoDesc");
     descricao.value = cursos[posicaoElemento].descricao;
 
@@ -83,11 +76,13 @@ function editarCurso(e) {
         a.preventDefault();
         
         cursos[posicaoElemento].nome = nome.value;
+        cursos[posicaoElemento].img = img.value;
         cursos[posicaoElemento].descricao = descricao.value;
 
         //Procurar a posicao do curso dentro da tabela e incluindo o valor digitado no modal
         let posicao = e.parentNode.parentNode.children;
         posicao[0].innerHTML = cursos[posicaoElemento].nome;
+        posicao[1].innerHTML = cursos[posicaoElemento].img;
         posicao[2].innerHTML = cursos[posicaoElemento].descricao;
     })
 }
