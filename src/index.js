@@ -33,6 +33,26 @@ function listarCursos() {
     document.getElementById("corpo").innerHTML = cursos.montarCursos();
 }
 
+// Mostrar imagem no adicionar
+const preview = document.getElementById("imgPreview");
+preview.style.display = "none";
+const carregarImagem = function (event) {
+    preview.style.display = "block";
+    preview.src = img.value;
+} 
+
+// apagar imagem no adicionar
+function deletarPreview() {
+    preview.src = "";
+    preview.style.display = "";
+}
+
+// Resetar formulario
+function resetarForm() {
+    document.getElementById("titulo").value = "";
+    document.getElementById("img").value = "";
+    document.getElementById("desc").value = "";
+}
 
 // ADD CURSO NOVO
 const addCurso = document.forms.add_curso;
@@ -50,6 +70,8 @@ addCurso.addEventListener("submit", (e) => {
     })
 
     listarCursos();
+    resetarForm();
+    deletarPreview();
 })
 
 //-----------------------------------------------------------
@@ -84,7 +106,7 @@ function editarCurso(e) {
         posicao[0].innerHTML = cursos[posicaoElemento].nome;
         posicao[1].innerHTML = cursos[posicaoElemento].img;
         posicao[2].innerHTML = cursos[posicaoElemento].descricao;
-    })
+    });
 }
 
 //EXCLUIR CURSO DA TELA

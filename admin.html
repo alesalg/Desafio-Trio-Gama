@@ -64,7 +64,8 @@
             </div>
             <div class="mb-3">
               <label for="img">Imagem</label>
-              <input type="text" class="form-control w-75" name="img" placeholder="Cole aqui o endereço da sua imagem ..."  />
+              <input type="text" id="img" class="form-control w-75" name="img" onchange="carregarImagem(event)" placeholder="Cole aqui o endereço da sua imagem ..."  />
+              <img src="" id="imgPreview" class="img-thumbnail w-75 mt-1" />
             </div>
             <div class="mb-3">
               <label for="desc">Descrição</label>
