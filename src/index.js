@@ -1,3 +1,4 @@
+//TESTE
 //ARRAY DE OBJETOS (OBJETO = CURSO)
 const cursos = [
     {nome: "Desenvolvimento Web", img: "../imagens/ilustra-team.png", descricao: "Consequatur debitis ipsa numquam illum placeat quod deleniti."},
