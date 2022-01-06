@@ -2,9 +2,9 @@
 
 ## 📝 Descrição
 #
-<p align="center">Projeto desenvolvido durante o curso de Desenvolvimento Full Stack da Gama Academy</p>
+<p align="center">Projeto desenvolvido durante o curso de Desenvolvimento Full Stack da Gama Academy. A proposta desse projeto era implementar as funções de CRUD (Create, Read, Update e Delete).</p>
 
-
+<p>
 
 ## 🛠 Tecnologias
 #
@@ -16,6 +16,24 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - CSS3
 - Bootstrap
 
+## Como Executar
+#
+
+```
+# Clonar o repositório
+$ git clone <https://github.com/alesalg/Desafio-Trio-Gama.git>
+
+# Acesse a pasta do projeto pelo terminal
+$ cd Desafio-Trio-Gama
+
+# Instale as dependências
+$ npm install
+
+# Execute a aplicação
+$ npm start
+
+# O servidor inciará automaticamente na porta:3000, ou acesse <http://localhost:3000>
+```
 
 ## Desenvolvedores
 #
