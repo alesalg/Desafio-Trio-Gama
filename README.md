@@ -1,4 +1,4 @@
-![](render/public/imagens/CRONOS-logo.png)
+<img src="render/public/imagens/CRONOS-logo.png" alt="Agência CRONOS"/>
 
 ## 📝 Descrição
 
