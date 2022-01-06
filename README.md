@@ -1,13 +1,13 @@
 ![](render/public/imagens/CRONOS-logo.png)
 
 ## 📝 Descrição
-#
+
 <p align="center">Projeto desenvolvido durante o curso de Desenvolvimento Full Stack da Gama Academy. A proposta desse projeto era implementar as funções de CRUD (Create, Read, Update e Delete).</p>
 
 <p>
 
 ## 🛠 Tecnologias
-#
+
 As seguintes ferramentas foram usadas na construção do projeto:
 
 - JavaScript 
@@ -16,8 +16,8 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - CSS3
 - Bootstrap
 
-## Como Executar
-#
+## 🖥️ Como Executar
+
 
 ```
 # Clonar o repositório
@@ -36,7 +36,7 @@ $ npm start
 ```
 
 ## Desenvolvedores
-#
+
 
 <table>
   <tr>
