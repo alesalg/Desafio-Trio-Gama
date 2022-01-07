@@ -24,7 +24,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 $ git clone <https://github.com/alesalg/Desafio-Trio-Gama.git>
 
 # Acesse a pasta do projeto pelo terminal
-$ cd Desafio-Trio-Gama
+$ cd Desafio-Trio-Gama/render
 
 # Instale as dependências
 $ npm install
