@@ -84,7 +84,6 @@ function editarCurso(e) {
     let elemento = e.parentNode.parentNode.firstElementChild.innerHTML;
     //Localiza em qual posição do vetor está o objeto
     let posicaoElemento = cursos.findIndex((cursos) => cursos.nome === elemento);
-
     // Capturamos o botão do modal e incluimos no mesmo o valor do atributo objeto
     let nome = document.getElementById("edicaoNome");
     nome.value = cursos[posicaoElemento].nome;
@@ -105,7 +104,7 @@ function editarCurso(e) {
         //Procurar a posicao do curso dentro da tabela e incluindo o valor digitado no modal
         let posicao = e.parentNode.parentNode.children;
         posicao[0].innerHTML = cursos[posicaoElemento].nome;
-        posicao[1].innerHTML = cursos[posicaoElemento].img;
+        posicao[1].innerHTML = `<img src="${cursos[posicaoElemento].img}" id="img-tamanho" class="img-thumbnail">`;
         posicao[2].innerHTML = cursos[posicaoElemento].descricao;
     });
 }
