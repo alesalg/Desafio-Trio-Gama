@@ -1,4 +1,3 @@
-
 //ARRAY DE OBJETOS (OBJETO = CURSO)
 const cursos = [
     {nome: "Desenvolvimento Web", img: "../imagens/ilustra-team.png", descricao: "Consequatur debitis ipsa numquam illum placeat quod deleniti."},
@@ -21,7 +20,7 @@ class Cursos {
                 <td>
                     <button onclick="editarCurso(this)"class="btn btn-secondary m-1"data-bs-toggle="modal" data-bs-target="#editarCurso">editar</button>
                     <button onclick="excluirCurso(this)" id="btnExcluir" class="btn btn-danger m-1">excluir</button>
-                </td>`        
+                </td>`
         });
         corpoTabela +="<tbody>"
         return corpoTabela;
@@ -83,7 +82,7 @@ function editarCurso(e) {
     //Percorre o elemento até encontrar o primeiro filho, assim localizamos o curso do botão
     let elemento = e.parentNode.parentNode.firstElementChild.innerHTML;
     //Localiza em qual posição do vetor está o objeto
-    let posicaoElemento = cursos.findIndex((cursos) => cursos.nome === elemento);
+    posicaoElemento = cursos.findIndex((cursos) => cursos.nome === elemento);
     // Capturamos o botão do modal e incluimos no mesmo o valor do atributo objeto
     let nome = document.getElementById("edicaoNome");
     nome.value = cursos[posicaoElemento].nome;
@@ -93,21 +92,18 @@ function editarCurso(e) {
     descricao.value = cursos[posicaoElemento].descricao;
 
     // Capturamos o botão do modal para chamar a funcao e editar os dados
-    let botao = document.getElementById("editarInfoCurso");
-    botao.addEventListener("click", (a) => {
-        a.preventDefault();
-        
-        cursos[posicaoElemento].nome = nome.value;
-        cursos[posicaoElemento].img = img.value;
-        cursos[posicaoElemento].descricao = descricao.value;
-
-        //Procurar a posicao do curso dentro da tabela e incluindo o valor digitado no modal
-        let posicao = e.parentNode.parentNode.children;
-        posicao[0].innerHTML = cursos[posicaoElemento].nome;
-        posicao[1].innerHTML = `<img src="${cursos[posicaoElemento].img}" id="img-tamanho" class="img-thumbnail">`;
-        posicao[2].innerHTML = cursos[posicaoElemento].descricao;
-    });
+    
 }
+let posicaoElemento;
+
+function salvarCurso(a) {
+    a.preventDefault();
+    cursos[posicaoElemento].nome = document.getElementById("edicaoNome").value;
+    cursos[posicaoElemento].img = document.getElementById("edicaoImg").value;
+    cursos[posicaoElemento].descricao = document.getElementById("edicaoDesc").value;
+
+    listarCursos();
+};
 
 //EXCLUIR CURSO DA TELA
 function excluirCurso(e) {
