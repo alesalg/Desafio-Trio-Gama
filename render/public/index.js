@@ -27,7 +27,7 @@ class Cursos {
     }
 }
 
-// FUNCTION PARA IMPORTAR PARA HTML DOM 
+// FUNCTION PARA IMPORTAR O DOM 
 function listarCursos() {
     const cursos = new Cursos();
     document.getElementById("corpo").innerHTML = cursos.montarCursos();
@@ -74,12 +74,9 @@ addCurso.addEventListener("submit", (e) => {
     deletarPreview();
 })
 
-//-----------------------------------------------------------
-
 // EDITAR CURSO
-
 function editarCurso(e) {
-    //Percorre o elemento até encontrar o primeiro filho, assim localizamos o curso do botão
+    //Percorre o elemento até encontrar o primeiro filho, assim localizamos o botão do curso
     let elemento = e.parentNode.parentNode.firstElementChild.innerHTML;
     //Localiza em qual posição do vetor está o objeto
     posicaoElemento = cursos.findIndex((cursos) => cursos.nome === elemento);
@@ -90,12 +87,9 @@ function editarCurso(e) {
     img.value = cursos[posicaoElemento].img;  
     let descricao = document.getElementById("edicaoDesc");
     descricao.value = cursos[posicaoElemento].descricao;
-
-    // Capturamos o botão do modal para chamar a funcao e editar os dados
-    
 }
-let posicaoElemento;
 
+let posicaoElemento;
 function salvarCurso(a) {
     a.preventDefault();
     cursos[posicaoElemento].nome = document.getElementById("edicaoNome").value;
@@ -115,7 +109,5 @@ function excluirCurso(e) {
         tabela.deleteRow(i);
     }
 }
-
-//-----------------------------------------------------------
 
 listarCursos();
