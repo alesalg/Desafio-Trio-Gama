@@ -2,7 +2,7 @@
 
 ## 📝 Descrição
 
-<p align="center">Projeto desenvolvido durante o curso de Desenvolvimento Full Stack da Gama Academy. A proposta desse projeto era implementar as funções de CRUD (Create, Read, Update e Delete) em um site.</p>
+<p align="center">Projeto desenvolvido durante o curso de Desenvolvimento Full Stack da Gama Academy. A proposta desse projeto era implementar as funções de CRUD (Create, Read, Update e Delete) nos cursos de uma agência de marketing digital.</p>
 
 <img src="render/public/imagens/pagina-adicionar.png" alt="Agência CRONOS"/>
 
